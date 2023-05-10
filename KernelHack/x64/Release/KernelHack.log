@@ -1,7 +1,7 @@
 ﻿  Building 'KernelHack' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
   Callbacks.cpp
   Comm.cpp
-E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\CallStack-Spoofer.h(129,16): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
+E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\CallStack-Spoofer.h(118,16): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
   entry.cpp
   正在生成代码...
   正在编译...
@@ -9,6 +9,7 @@ E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\CallStack-Spoofer.h(12
   hde64.c
   正在生成代码...
   正在编译...
+  I8042Interface.cpp
   Mapper.cpp
 E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\Mapper.cpp(106,30): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
 E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\Mapper.cpp(119,40): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
@@ -16,7 +17,7 @@ E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\Mapper.cpp(184,17): wa
   Memory.cpp
   Offsets.cpp
   Process.cpp
-E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\Process.cpp(405,17): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
+E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\Process.cpp(404,17): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
   Utils.cpp
 E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\Utils.cpp(27,74): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
 E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\Utils.cpp(56,74): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.

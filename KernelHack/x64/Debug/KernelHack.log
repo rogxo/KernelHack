@@ -1,7 +1,15 @@
 ﻿  Building 'KernelHack' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
   Callbacks.cpp
   Comm.cpp
-E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\CallStack-Spoofer.h(129,16): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
+E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\CallStack-Spoofer.h(118,16): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
+  entry.cpp
+  正在生成代码...
+  正在编译...
+  hde32.c
+  hde64.c
+  正在生成代码...
+  正在编译...
+  I8042Interface.cpp
   Mapper.cpp
 E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\Mapper.cpp(106,30): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
 E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\Mapper.cpp(119,40): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
@@ -14,7 +22,7 @@ E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\Process.cpp(404,17): w
 E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\Utils.cpp(27,74): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
 E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\Utils.cpp(56,74): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
 E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\Utils.cpp(86,74): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
-  entry.cpp
+E:\Project\CodeProject\VisualStudio\KernelHack\KernelHack\Utils.cpp(280,63): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
   正在生成代码...
   KernelHack.vcxproj -> E:\Project\CodeProject\VisualStudio\KernelHack\x64\Debug\KernelHack.sys
   Inf2Cat task was skipped as there were no inf files to process

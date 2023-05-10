@@ -30,7 +30,7 @@ PVOID Utils::GetModuleBase(PCHAR szModuleName)
 	NTSTATUS status = ZwQuerySystemInformation(SystemModuleInformation, system_modules, length, 0);
 	if (NT_SUCCESS(status))
 	{
-		for (size_t i = 0; i < system_modules->ulModuleCount; i++)
+		for (size_t i = 0; i < (ULONG)system_modules->ulModuleCount; i++)
 		{
 			char* fileName = (char*)system_modules->Modules[i].ImageName + system_modules->Modules[i].ModuleNameOffset;
 			if (!strcmp(fileName, szModuleName))
@@ -59,7 +59,7 @@ PVOID Utils::GetModuleBase(PCHAR szModuleName,SIZE_T* size)
 	NTSTATUS status = ZwQuerySystemInformation(SystemModuleInformation, system_modules, length, 0);
 	if (NT_SUCCESS(status))
 	{
-		for (size_t i = 0; i < system_modules->ulModuleCount; i++)
+		for (size_t i = 0; i < (ULONG)system_modules->ulModuleCount; i++)
 		{
 			char* fileName = (char*)system_modules->Modules[i].ImageName + system_modules->Modules[i].ModuleNameOffset;
 			if (!strcmp(fileName, szModuleName))
@@ -91,7 +91,7 @@ PVOID Utils::GetModuleBase(PCHAR szModuleName, SIZE_T* size, BOOLEAN CaseInSensi
 	{
 		ANSI_STRING str1 = { 0 };
         RtlInitAnsiString(&str1, szModuleName);
-		for (size_t i = 0; i < system_modules->ulModuleCount; i++)
+		for (size_t i = 0; i < (ULONG)system_modules->ulModuleCount; i++)
 		{
 			ANSI_STRING str2 = { 0 };
             RtlInitAnsiString(&str2, (char*)system_modules->Modules[i].ImageName + system_modules->Modules[i].ModuleNameOffset);
@@ -189,14 +189,12 @@ ULONG Utils::GetActiveProcessLinksOffset()
     UNICODE_STRING FunName = { 0 };
     RtlInitUnicodeString(&FunName, skCrypt(L"PsGetProcessId"));
 
-    /*
-    .text:000000014007E054                   PsGetProcessId  proc near
-    .text:000000014007E054
-    .text:000000014007E054 48 8B 81 80 01 00+                mov     rax, [rcx+180h]
-    .text:000000014007E054 00
-    .text:000000014007E05B C3                                retn
-    .text:000000014007E05B                   PsGetProcessId  endp
-    */
+    //.text:000000014007E054                   PsGetProcessId  proc near
+    //.text:000000014007E054
+    //.text:000000014007E054 48 8B 81 80 01 00+                mov     rax, [rcx+180h]
+    //.text:000000014007E054 00
+    //.text:000000014007E05B C3                                retn
+    //.text:000000014007E05B                   PsGetProcessId  endp
 
     PUCHAR pfnPsGetProcessId = (PUCHAR)MmGetSystemRoutineAddress(&FunName);
     if (pfnPsGetProcessId && MmIsAddressValid(pfnPsGetProcessId) && MmIsAddressValid(pfnPsGetProcessId + 0x7))
@@ -205,7 +203,7 @@ ULONG Utils::GetActiveProcessLinksOffset()
         {
             if (pfnPsGetProcessId[i] == 0x48 && pfnPsGetProcessId[i + 1] == 0x8B)
             {
-                return *(PULONG)(pfnPsGetProcessId + i + 3) + 8;
+                return *(PLONG)(pfnPsGetProcessId + i + 3) + 8;
             }
         }
     }
@@ -231,6 +229,7 @@ PEPROCESS Utils::GetProcessByProcessId(HANDLE pid)
 	return Process;
 }
 
+/*
 PEPROCESS Utils::GetProcessByName(PCHAR szName)
 {
     PEPROCESS Process = NULL;
@@ -262,6 +261,43 @@ PEPROCESS Utils::GetProcessByName(PCHAR szName)
         pNode = pNode->Flink;
     } while (pNode != pHead);
 
+    return NULL;
+}
+*/
+
+PEPROCESS Utils::GetProcessByName(PCHAR szName)
+{
+    PEPROCESS Process = NULL;
+    ULONG length = 0;
+    UNICODE_STRING usProcessName;
+
+    RtlCaptureAnsiString(&usProcessName, szName, TRUE);
+
+    ZwQuerySystemInformation(SystemProcessInformation, &length, 0, &length);
+    if (!length) return NULL;
+
+    constexpr unsigned long tag = 'MEM';
+    PSYSTEM_PROCESS_INFO process_info = (PSYSTEM_PROCESS_INFO)ExAllocatePoolWithTag(NonPagedPool, length, tag);
+    if (!process_info) return NULL;
+
+    NTSTATUS status = ZwQuerySystemInformation(SystemProcessInformation, process_info, length, 0);
+    if (NT_SUCCESS(status))
+    {
+        while (process_info->NextEntryOffset)
+        {
+            if (!RtlCompareUnicodeString(&process_info->ImageName, &usProcessName, TRUE))
+            {
+                status = PsLookupProcessByProcessId(process_info->UniqueProcessId, &Process);
+                if (!NT_SUCCESS(status)) {
+                    return NULL;
+                }
+                ObDereferenceObject(Process);
+                return Process;
+            }
+            process_info = PSYSTEM_PROCESS_INFO((ULONG64)process_info + process_info->NextEntryOffset);
+        }
+    }
+    ExFreePoolWithTag(process_info, tag);
     return NULL;
 }
 

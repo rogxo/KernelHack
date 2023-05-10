@@ -794,7 +794,8 @@ typedef struct _KLDR_DATA_TABLE_ENTRY
     ULONG ExceptionTableSize;
     // ULONG padding on IA64
     PVOID GpValue;
-    PNON_PAGED_DEBUG_INFO NonPagedDebugInfo;
+    //PNON_PAGED_DEBUG_INFO NonPagedDebugInfo;
+    PVOID NonPagedDebugInfo;
     PVOID DllBase;
     PVOID EntryPoint;
     ULONG SizeOfImage;

@@ -24,6 +24,7 @@ namespace Offsets
 	OFFSETINFO KeResumeThread;
 	OFFSETINFO PspNotifyEnableMask;
 	OFFSETINFO MmSetPageProtection;
+	OFFSETINFO I8xWriteDataToKeyboardQueue;
 }
 
 BOOLEAN Offsets::UpdateOffsetInfo(POFFSETINFO OffsetInfo)
@@ -36,7 +37,7 @@ BOOLEAN Offsets::UpdateOffsetInfo(POFFSETINFO OffsetInfo)
 			OffsetInfo->Module,
 			OffsetInfo->Section,
 			OffsetInfo->Pattern,
-			OffsetInfo->Mask) + OffsetInfo->Offset;
+			OffsetInfo->Mask) + OffsetInfo->Offset;	//OPCODE of call/mov/...
 	}
 	else
 	{
@@ -137,6 +138,13 @@ BOOLEAN Offsets::Initialize()
 		MmSetPageProtection.Pattern = skCrypt("41 ?? ?? ?? ?? ?? 48 ?? ?? ?? ?? ?? E8 ?? ?? ?? ?? 84 C0 74 ?? 48 81 EB ?? ?? ?? ?? EB");
 		MmSetPageProtection.Mask = 0;
 		MmSetPageProtection.Offset = 0xC;
+
+		I8xWriteDataToKeyboardQueue.Module = skCrypt("i8042prt.sys");
+		I8xWriteDataToKeyboardQueue.Section = skCrypt(".text");
+		I8xWriteDataToKeyboardQueue.InFunction = skCrypt("I8xQueueCurrentKeyboardInput");
+		I8xWriteDataToKeyboardQueue.Pattern = skCrypt("39 73 ?? 0F ?? ?? ?? ?? ?? 48 8D ?? ?? ?? ?? ?? 48 8B CB E8 ?? ?? ?? ?? 84 C0 75 ??");
+		I8xWriteDataToKeyboardQueue.Mask = 0;
+		I8xWriteDataToKeyboardQueue.Offset = 0x13;
 	}
 
 	//PoolBigPageTable
@@ -235,6 +243,9 @@ BOOLEAN Offsets::Initialize()
 
 	UpdateOffsetInfo(&MmSetPageProtection);
 	KdPrint(("MmSetPageProtection = %llX\n", MmSetPageProtection.Address));
+
+	UpdateOffsetInfo(&I8xWriteDataToKeyboardQueue);
+	KdPrint(("I8xWriteDataToKeyboardQueue = %llX\n", I8xWriteDataToKeyboardQueue.Address));
 
 	return TRUE;
 }

@@ -16,6 +16,7 @@ License:
 #include "Mapper.hpp"
 #include "Offsets.hpp"
 #include "Process.hpp"
+#include "I8042Interface.h"
 #include "skCrypter.h"
 
 
@@ -30,24 +31,26 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath)
 		return STATUS_UNSUCCESSFUL;
 	}
 
+	DbgPrint("res - %p\n", Utils::GetProcessByName("dwm.exe"));
+
 	if (DriverObject) {
 		DriverObject->DriverUnload = [](PDRIVER_OBJECT DriverObject)-> VOID {
 			UNREFERENCED_PARAMETER(DriverObject);
 			//Comm::RegistryCallback::Unload();
 			//Comm::DeviceIoControl::Unload(DriverObject);
-			//Comm::IrpHijack::Unload();
+			Comm::IrpHijack::Unload();
 		};
 
 		//Comm::RegistryCallback::Initialize();
 		//Comm::DeviceIoControl::Initialize(DriverObject);
-		//Comm::IrpHijack::Initialize();
-		//return STATUS_SUCCESS;
+		Comm::IrpHijack::Initialize();
+		return STATUS_SUCCESS;
 
-		PLDR_DATA_TABLE_ENTRY LdrData = (PLDR_DATA_TABLE_ENTRY)DriverObject->DriverSection;
-		status = Mapper::MapDriverFromFile(&LdrData->FullDllName);
-		LdrData->BaseDllName.Length = 0;
-		Memory::CleanPiDDBCache(DriverObject);
-		return STATUS_UNSUCCESSFUL;
+		//PLDR_DATA_TABLE_ENTRY LdrData = (PLDR_DATA_TABLE_ENTRY)DriverObject->DriverSection;
+		//status = Mapper::MapDriverFromFile(&LdrData->FullDllName);
+		//LdrData->BaseDllName.Length = 0;
+		//Memory::CleanPiDDBCache(DriverObject);
+		//return STATUS_UNSUCCESSFUL;
 	}
 	else {
 		//Comm::RegistryCallback::Initialize();

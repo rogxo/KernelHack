@@ -138,6 +138,7 @@
     <ClCompile Include="entry.cpp" />
     <ClCompile Include="hde\hde32.c" />
     <ClCompile Include="hde\hde64.c" />
+    <ClCompile Include="I8042Interface.cpp" />
     <ClCompile Include="Mapper.cpp" />
     <ClCompile Include="Memory.cpp" />
     <ClCompile Include="Offsets.cpp" />
@@ -154,6 +155,7 @@
     <ClInclude Include="hde\kstdint.h" />
     <ClInclude Include="hde\table32.h" />
     <ClInclude Include="hde\table64.h" />
+    <ClInclude Include="I8042Interface.h" />
     <ClInclude Include="Imports.h" />
     <ClInclude Include="Includes.h" />
     <ClInclude Include="Mapper.hpp" />

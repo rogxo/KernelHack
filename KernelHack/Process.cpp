@@ -126,7 +126,7 @@ BOOLEAN Process::InjectShellcode(PEPROCESS Process, PBYTE Shellcode, SIZE_T Size
 	pfnKeXXXThread KeResumeThread = (pfnKeXXXThread)Offsets::KeResumeThread.Address;
 	if (!KeSuspendThread || !KeResumeThread)
 		return FALSE;
-	MainThread = GetProcessMainThread(Process);
+	MainThread = GetProcessMainThread(Process);		//GUI Thread
 	KeSuspendThread(MainThread);
 	TrapFrame = GetThreadTrapFrame(MainThread);
 
@@ -408,7 +408,7 @@ NTSTATUS Process::SafeAllocateExecuteMemory(PEPROCESS Process, PVOID* BaseAddres
 	ExFreePoolWithTag(Buffer, 'FKY');
 
 	//Memory::MmSetPageProtection(*BaseAddress, *Size, PAGE_EXECUTE_READWRITE);
-	Memory::SetExecutePage((ULONG64)*BaseAddress, *Size);
+	Memory::SetExecutePage((ULONG64)*BaseAddress, *Size);	//pte->no_execute=0
 
 	DetachProcess();
 	IsAttached = FALSE;

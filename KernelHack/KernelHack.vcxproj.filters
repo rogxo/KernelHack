@@ -32,6 +32,9 @@
     <Filter Include="hde">
       <UniqueIdentifier>{df5b61d8-8c9b-4d36-ba95-c2001d331f3b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="KbdMouse">
+      <UniqueIdentifier>{82646748-16e7-4387-85d1-b7ad7b4339e9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="entry.cpp">
@@ -63,6 +66,9 @@
     </ClCompile>
     <ClCompile Include="hde\hde64.c">
       <Filter>hde</Filter>
+    </ClCompile>
+    <ClCompile Include="I8042Interface.cpp">
+      <Filter>KbdMouse</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +128,9 @@
     </ClInclude>
     <ClInclude Include="CallStack-Spoofer.h">
       <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="I8042Interface.h">
+      <Filter>KbdMouse</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

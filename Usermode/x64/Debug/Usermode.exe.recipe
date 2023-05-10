@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>E:\project\VSProject\KernelHack\x64\Debug\Usermode.exe</FullPath>
+      <FullPath>E:\Project\CodeProject\VisualStudio\KernelHack\x64\Debug\Usermode.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

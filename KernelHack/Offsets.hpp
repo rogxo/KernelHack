@@ -33,6 +33,7 @@ namespace Offsets
 	extern OFFSETINFO KeResumeThread;
 	extern OFFSETINFO PspNotifyEnableMask;
 	extern OFFSETINFO MmSetPageProtection;
+	extern OFFSETINFO I8xWriteDataToKeyboardQueue;
 
 	BOOLEAN UpdateOffsetInfo(POFFSETINFO OffsetInfo);
 

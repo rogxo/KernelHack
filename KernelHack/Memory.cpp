@@ -44,7 +44,7 @@ ULONG64 PXE_BASE;
 #define MiGetPdeOffset(va) ((ULONG)(((ULONG_PTR)(va) >> PDI_SHIFT) & (PDI_MASK_AMD64)))
 #define MiGetPteOffset(va) ((ULONG)(((ULONG_PTR)(va) >> PTI_SHIFT) & (PTI_MASK_AMD64)))
 
-VOID Memory::InitializePageBase()
+VOID Memory::InitializePageBase()	//dynamic PTE Base
 {
     ULONG64 dirbase = __readcr3();
 	PHYSICAL_ADDRESS phAddr = { 0 };
@@ -385,7 +385,6 @@ NTSTATUS Memory::CleanPiDDBCache(PDRIVER_OBJECT DriverObject)
 		return STATUS_UNSUCCESSFUL;
 
 	ExReleaseResourceLite(reinterpret_cast<PERESOURCE>(piddbLockAddress));
-
 	return STATUS_SUCCESS;
 }
 
@@ -444,7 +443,7 @@ BOOLEAN Memory::SetExecutePage(ULONG64 VirtualAddress, SIZE_T size)
 	ULONG64 startAddress = VirtualAddress & (~0xFFF); // 起始地址
 	ULONG64 endAddress = (VirtualAddress + size) & (~0xFFF); // 结束地址 
 
-    InitializePageBase();
+    InitializePageBase();	//
 
 	for (ULONG64 curAddress = startAddress; curAddress <= endAddress; curAddress += PAGE_SIZE)
 	{
