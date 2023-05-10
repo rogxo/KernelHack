@@ -1,0 +1,46 @@
+﻿  Building 'KernelHack' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Callbacks.cpp
+  Comm.cpp
+E:\project\VSProject\KernelHack\KernelHack\Comm.cpp(57,4): error C2065: “PKTRAP_FRAME”: 未声明的标识符
+E:\project\VSProject\KernelHack\KernelHack\Comm.cpp(57,17): error C2146: 语法错误: 缺少“;”(在标识符“trap_frame”的前面)
+E:\project\VSProject\KernelHack\KernelHack\Comm.cpp(57,17): error C2065: “trap_frame”: 未声明的标识符
+E:\project\VSProject\KernelHack\KernelHack\Comm.cpp(57,31): error C2065: “PKTRAP_FRAME”: 未声明的标识符
+E:\project\VSProject\KernelHack\KernelHack\Comm.cpp(58,29): error C2065: “trap_frame”: 未声明的标识符
+E:\project\VSProject\KernelHack\KernelHack\Comm.cpp(59,4): error C2065: “trap_frame”: 未声明的标识符
+  entry.cpp
+  Mapper.cpp
+E:\project\VSProject\KernelHack\KernelHack\Mapper.cpp(32,97): error C2664: “PVOID TranslateRaw(PBYTE,PIMAGE_NT_HEADERS,DWORD)”: 无法将参数 2 从“const PIMAGE_NT_HEADERS64”转换为“PIMAGE_NT_HEADERS”
+E:\project\VSProject\KernelHack\KernelHack\Mapper.cpp(32,83): message : 与指向的类型无关；强制转换要求 reinterpret_cast、C 样式强制转换或函数样式强制转换
+E:\project\VSProject\KernelHack\KernelHack\Mapper.cpp(16,7): message : 参见“TranslateRaw”的声明
+E:\project\VSProject\KernelHack\KernelHack\Mapper.cpp(33,23): error C3536: “importDescriptor”: 初始化之前无法使用
+E:\project\VSProject\KernelHack\KernelHack\Mapper.cpp(38,91): error C2660: “TranslateRaw”: 函数不接受 2 个参数
+E:\project\VSProject\KernelHack\KernelHack\Mapper.cpp(16,7): message : 参见“TranslateRaw”的声明
+E:\project\VSProject\KernelHack\KernelHack\Mapper.cpp(45,85): error C2665: “Utils::GetModuleBase”: 3 个重载中没有一个可以转换所有参数类型
+E:\project\VSProject\KernelHack\KernelHack\Utils.hpp(10,8): message : 可能是“PVOID Utils::GetModuleBase(PCHAR,SIZE_T *)”
+E:\project\VSProject\KernelHack\KernelHack\Mapper.cpp(45,85): message : 尝试匹配参数列表“(PCHAR, size_t *)”时
+E:\project\VSProject\KernelHack\KernelHack\Mapper.cpp(50,3): error C2660: “TranslateRaw”: 函数不接受 2 个参数
+E:\project\VSProject\KernelHack\KernelHack\Mapper.cpp(16,7): message : 参见“TranslateRaw”的声明
+E:\project\VSProject\KernelHack\KernelHack\Mapper.cpp(52,132): error C2664: “PVOID TranslateRaw(PBYTE,PIMAGE_NT_HEADERS,DWORD)”: 无法将参数 2 从“const PIMAGE_NT_HEADERS64”转换为“PIMAGE_NT_HEADERS”
+E:\project\VSProject\KernelHack\KernelHack\Mapper.cpp(52,78): message : 与指向的类型无关；强制转换要求 reinterpret_cast、C 样式强制转换或函数样式强制转换
+E:\project\VSProject\KernelHack\KernelHack\Mapper.cpp(16,7): message : 参见“TranslateRaw”的声明
+E:\project\VSProject\KernelHack\KernelHack\Mapper.cpp(53,102): error C3536: “importByName”: 初始化之前无法使用
+E:\project\VSProject\KernelHack\KernelHack\Mapper.cpp(53,108): error C2660: “RtlFindExportedRoutineByName”: 函数不接受 1 个参数
+E:\project\VSProject\KernelHack\KernelHack\Imports.h(232,1): message : 参见“RtlFindExportedRoutineByName”的声明
+E:\project\VSProject\KernelHack\KernelHack\Mapper.cpp(172,18): warning C4244: “初始化”: 从“LONGLONG”转换到“SIZE_T”，可能丢失数据
+  Memory.cpp
+E:\project\VSProject\KernelHack\KernelHack\Memory.cpp(124,19): error C3861: “MiGetPxeOffset”: 找不到标识符
+E:\project\VSProject\KernelHack\KernelHack\Memory.cpp(125,19): error C3861: “MiGetPpeOffset”: 找不到标识符
+E:\project\VSProject\KernelHack\KernelHack\Memory.cpp(126,19): error C3861: “MiGetPdeOffset”: 找不到标识符
+E:\project\VSProject\KernelHack\KernelHack\Memory.cpp(127,19): error C3861: “MiGetPteOffset”: 找不到标识符
+E:\project\VSProject\KernelHack\KernelHack\Memory.cpp(302,32): warning C4244: “初始化”: 从“ULONG64”转换到“uintptr_t”，可能丢失数据
+E:\project\VSProject\KernelHack\KernelHack\Memory.cpp(311,51): warning C4244: “=”: 从“ULONG64”转换到“uintptr_t”，可能丢失数据
+E:\project\VSProject\KernelHack\KernelHack\Memory.cpp(325,30): warning C4244: “初始化”: 从“ULONG64”转换到“uintptr_t”，可能丢失数据
+E:\project\VSProject\KernelHack\KernelHack\Memory.cpp(376,25): warning C4244: “=”: 从“ULONG64”转换到“uintptr_t”，可能丢失数据
+E:\project\VSProject\KernelHack\KernelHack\Memory.cpp(380,29): warning C4244: “=”: 从“ULONG64”转换到“uintptr_t”，可能丢失数据
+E:\project\VSProject\KernelHack\KernelHack\Memory.cpp(384,37): warning C4244: “=”: 从“ULONG64”转换到“uintptr_t”，可能丢失数据
+E:\project\VSProject\KernelHack\KernelHack\Memory.cpp(406,20): warning C4018: “<”: 有符号/无符号不匹配
+  Offsets.cpp
+  Process.cpp
+E:\project\VSProject\KernelHack\KernelHack\Process.cpp(32,41): warning C4100: “Process”: 未引用的形参
+  Utils.cpp
+  正在生成代码...

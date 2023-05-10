@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Memory">
+      <UniqueIdentifier>{73fc1256-a689-41c2-bf80-cd0443ed364b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Comm">
+      <UniqueIdentifier>{456b3b89-8db1-4ed2-8688-bf2e5c49ffd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="General">
+      <UniqueIdentifier>{568dc788-6e61-43e7-b0ae-2e7088a9772f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{1812d213-ca68-439c-9c08-ae4bf88d1428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Process">
+      <UniqueIdentifier>{8465f0bb-6844-43d8-967f-dcc1771b0cbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mapper">
+      <UniqueIdentifier>{4a421927-4ce1-4f06-8adb-a4a9f1947e8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Offsets">
+      <UniqueIdentifier>{54df836e-03c1-4425-97b6-d60c149519d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Callbacks">
+      <UniqueIdentifier>{652824d0-60f1-49a6-8edf-b0384ced0fd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hde">
+      <UniqueIdentifier>{df5b61d8-8c9b-4d36-ba95-c2001d331f3b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="entry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Memory.cpp">
+      <Filter>Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="Comm.cpp">
+      <Filter>Comm</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Process.cpp">
+      <Filter>Process</Filter>
+    </ClCompile>
+    <ClCompile Include="Mapper.cpp">
+      <Filter>Mapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Offsets.cpp">
+      <Filter>Offsets</Filter>
+    </ClCompile>
+    <ClCompile Include="Callbacks.cpp">
+      <Filter>Callbacks</Filter>
+    </ClCompile>
+    <ClCompile Include="hde\hde32.c">
+      <Filter>hde</Filter>
+    </ClCompile>
+    <ClCompile Include="hde\hde64.c">
+      <Filter>hde</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Memory.hpp">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="Comm.hpp">
+      <Filter>Comm</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.hpp">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="NativeStructs.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="NativeEnums.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="Imports.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="Process.hpp">
+      <Filter>Process</Filter>
+    </ClInclude>
+    <ClInclude Include="Mapper.hpp">
+      <Filter>Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Offsets.hpp">
+      <Filter>Offsets</Filter>
+    </ClInclude>
+    <ClInclude Include="Callbacks.h">
+      <Filter>Callbacks</Filter>
+    </ClInclude>
+    <ClInclude Include="hde\hde.h">
+      <Filter>hde</Filter>
+    </ClInclude>
+    <ClInclude Include="hde\hde32.h">
+      <Filter>hde</Filter>
+    </ClInclude>
+    <ClInclude Include="hde\hde64.h">
+      <Filter>hde</Filter>
+    </ClInclude>
+    <ClInclude Include="hde\kstdint.h">
+      <Filter>hde</Filter>
+    </ClInclude>
+    <ClInclude Include="hde\table32.h">
+      <Filter>hde</Filter>
+    </ClInclude>
+    <ClInclude Include="hde\table64.h">
+      <Filter>hde</Filter>
+    </ClInclude>
+    <ClInclude Include="skCrypter.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="CallStack-Spoofer.h">
+      <Filter>General</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
