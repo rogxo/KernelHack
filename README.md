@@ -1,5 +1,4 @@
 # KernelHack
-### 抄，疯狂的抄
 ### This source code is copy and modify from other source code...
 
 
